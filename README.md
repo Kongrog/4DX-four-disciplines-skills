@@ -2,6 +2,12 @@
 
 [English](#english) · [Русский](#русский)
 
+| Platform / Платформа | English | Русский |
+|---|---|---|
+| ChatGPT: standalone / единый файл | [English](chatgpt/en/CHATGPT-INSTRUCTIONS.md) | [Русский](chatgpt/CHATGPT-INSTRUCTIONS.md) |
+| ChatGPT: skill folder / каталог навыка | [English](chatgpt/en/four-disciplines-coach-en/SKILL.md) | [Русский](chatgpt/four-disciplines-coach/SKILL.md) |
+| Hermes | [English](hermes/en/four-disciplines-execution-en/SKILL.md) | [Русский](hermes/four-disciplines-execution/SKILL.md) |
+
 ## English
 
 AI assistant skills for **ChatGPT and Hermes** based on *The 4 Disciplines of Execution* (4DX). They help individuals and teams turn an important goal into a practical system of measurable actions, a visible scoreboard, and weekly accountability.
@@ -17,17 +23,30 @@ The skills also support recovery after missed commitments, diagnosis of ineffect
 
 ### Getting started
 
-**ChatGPT:** download [CHATGPT-INSTRUCTIONS.md](chatgpt/CHATGPT-INSTRUCTIONS.md), attach it to a chat, and send:
+**ChatGPT:** download [CHATGPT-INSTRUCTIONS.md](chatgpt/en/CHATGPT-INSTRUCTIONS.md), attach it to a chat, and send:
 
 > Use the attached instructions as my 4DX coaching skill. Help me build an execution system for my goal. Ask one main question at a time, respond in English, and keep a portable record of the system.
 
-For environments that support skill folders, use [four-disciplines-coach](chatgpt/four-disciplines-coach/SKILL.md) instead of the standalone file.
+For environments that support skill folders, use [four-disciplines-coach-en](chatgpt/en/four-disciplines-coach-en/SKILL.md) instead of the standalone file.
 
-**Hermes:** download the repository and copy the entire [four-disciplines-execution](hermes/four-disciplines-execution/SKILL.md) folder from `hermes/` into the `skills` directory of your chosen active profile. Preserve the root LICENSE when redistributing the files. Confirm that Hermes can discover and open the skill, then send:
+**Hermes:** download the repository and copy the entire [four-disciplines-execution-en](hermes/en/four-disciplines-execution-en/SKILL.md) folder from `hermes/en/` into the `skills` directory of your chosen active profile. Preserve the root LICENSE when redistributing the files. Confirm that Hermes can discover and open the skill, then send:
 
-> Use the four-disciplines-execution skill. Help me set up my 4DX system and run weekly reviews. Respond in English. Let's agree on a folder for the system state and session notes.
+> Use the four-disciplines-execution-en skill. Help me set up my 4DX system and run weekly reviews. Respond in English. Let's agree on a folder for the system state and session notes.
 
-**Language:** the skill files, references, and templates are currently written in Russian. The instructions ask the assistant to respond in the user's language; a separate English translation of the skill files is not included.
+**Languages:** complete English and Russian packages are available, including all references and templates. The English skills use the `-en` suffix so they can coexist with the Russian skills. Select one edition when invoking the skill. The assistant can respond in the user's language.
+
+### English templates and references
+
+- [System-state template](hermes/en/four-disciplines-execution-en/assets/system-state.md)
+- [Weekly session template](hermes/en/four-disciplines-execution-en/assets/weekly-session.md)
+- [Setup guide](hermes/en/four-disciplines-execution-en/references/setup.md)
+- [Weekly review guide](hermes/en/four-disciplines-execution-en/references/weekly.md)
+- [Recovery and troubleshooting](hermes/en/four-disciplines-execution-en/references/recovery.md)
+- [Organizational rollout](hermes/en/four-disciplines-execution-en/references/organization.md)
+- [Worked example](hermes/en/four-disciplines-execution-en/references/worked-example.md)
+- [Book basis and adaptation boundaries](hermes/en/four-disciplines-execution-en/references/book-basis.md)
+
+The ChatGPT skill folder includes the same references and templates; the standalone ChatGPT file embeds all of them.
 
 ### Continuing each week
 
@@ -61,7 +80,7 @@ The project is licensed under [MIT](LICENSE), allowing personal and commercial u
 | ChatGPT / среда с поддержкой папок SKILL.md | [four-disciplines-coach](chatgpt/four-disciplines-coach/SKILL.md) |
 | Hermes | [four-disciplines-execution](hermes/four-disciplines-execution/SKILL.md) |
 
-Каждый каталог навыка самодостаточен: содержит SKILL.md, справки в references и шаблоны в assets. Все материалы на русском языке; помощнику предписано отвечать на языке пользователя.
+Каждый каталог навыка самодостаточен: содержит SKILL.md, справки в references и шаблоны в assets. Русские версии сохранены по прежним путям; полные английские версии, включая справки и шаблоны, находятся в `chatgpt/en/` и `hermes/en/`. Помощнику предписано отвечать на языке пользователя.
 
 ## Быстрый старт: ChatGPT
 
