@@ -27,3 +27,5 @@ The authors' 80% control guideline is a conceptual dependency check, not a preci
 Additions in this adaptation: one main question at a time; portable system state; explicit draft/baseline/active statuses; unknown data distinguished from zero; measurement sources; versions and a change log; a date to review the lead hypothesis; negotiated recovery after a missed commitment without automatically doubling workload. These support honest AI-assisted execution and are not attributed to the authors.
 
 The mandatory post-interview dashboard delivery, interactive presentation, and data export/restore are implementation requirements of this AI adaptation, not claims about the book's original format.
+
+The first-person dashboard, stage route, tri-state cells, linked unit IDs, and closed-week snapshots were added after user testing. They are interface and data-handling adaptations, not a new universal number of stages or weekly actions prescribed by the authors.

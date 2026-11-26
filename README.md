@@ -167,3 +167,22 @@ MIT разрешает бесплатное личное и коммерческ
 Контакт по вопросам лицензирования, сотрудничества, улучшений и ошибок: **kongrog@yandex.ru**.
 
 Лицензия проекта распространяется на материалы, которые правообладатели проекта вправе лицензировать. Она не предоставляет прав на исходную книгу «Как достичь цели. Четыре дисциплины исполнения», сторонние материалы или товарные знаки. Проект является неофициальной адаптацией для ИИ-помощников и не заявляет об одобрении авторами книги или FranklinCovey.
+
+## Dashboard form / Форма дашборда
+
+The tested layout is **my WIG → overall path → current stage and its steps → my weekly actions**. Measures use the user's first-person voice. Linked ✓ / × / · cells distinguish completed, missed, and unreported actions; closing a week preserves a snapshot. Weekly execution, stage progress, and the ultimate lag outcome remain separate.
+
+Форма по результатам тестирования: **моя КВЦ → общий путь → текущий этап и его шаги → мои действия недели**. Показатели сформулированы от лица пользователя. Связанные клетки ✓ / × / · различают выполнение, пропуск и отсутствие данных; закрытая неделя сохраняется снимком. Недельный счёт, прогресс этапа и конечный результат не смешиваются.
+
+| Resource / Материал | English | Русский |
+|---|---|---|
+| Ready-made HTML form / Готовая HTML-форма | [HTML](hermes/en/four-disciplines-execution-en/assets/dashboard.html) | [HTML](hermes/four-disciplines-execution/assets/dashboard.html) |
+| Populate and use / Заполнение и использование | [Schema](hermes/en/four-disciplines-execution-en/references/dashboard-schema.md) | [Схема](hermes/four-disciplines-execution/references/dashboard-schema.md) |
+
+The HTML file is a reusable template: the skill populates it with the user's interview answers before delivery. Download it to open in a browser; GitHub's source view is not the running dashboard. Save changes using JSON export and restore them on reopening. ChatGPT packages contain the same form; their standalone instructions embed its source.
+
+HTML-файл — переиспользуемый шаблон: навык заполняет его ответами пользователя перед выдачей. Для открытия в браузере скачайте файл; просмотр исходного кода на GitHub не запускает дашборд. Сохраняйте изменения экспортом JSON и загружайте их при следующем открытии. Та же форма включена в пакеты ChatGPT и встроена в единые инструкции.
+
+Automated logic checks: `node tests/dashboard.test.cjs`. These checks cover linked marks, unknown versus missed, weekly snapshots, compound outcomes, and export/import. They do not replace browser layout inspection or live model testing.
+
+Автоматическая проверка логики: `node tests/dashboard.test.cjs`. Проверяются связанные отметки, неизвестное и пропуск, снимки недель, составные результаты и экспорт/импорт. Это не заменяет проверку в браузере и тестирование навыка в живом диалоге.

@@ -94,3 +94,14 @@ Keep the date, underlying counts, source, brief conclusion, and a link to separa
 - Latest exported data file, if applicable:
 - Next update procedure:
 - State synchronization: implemented and verified / manual using exported data
+
+## Path, stages, and linked actions
+
+- Ultimate WIG (not replaced by the current stage):
+- Exact sustained-result criterion, if chosen; consecutive periods and deadline:
+- Stage IDs, first-person outcomes, proposed/agreed status, acceptance criteria:
+- Current stage ID and deadline:
+- Step IDs and linked unit IDs; compound outcomes require matching components:
+- Weekly periods, unit IDs, and done/missed/unreported marks:
+- Closed-week snapshots and separately logged corrections:
+- Dashboard export schemaVersion and revision:

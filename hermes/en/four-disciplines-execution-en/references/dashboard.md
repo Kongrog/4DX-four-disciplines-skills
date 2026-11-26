@@ -45,3 +45,39 @@ A green lead does not turn a red lag green. Show outcomes and actions separately
 Verify that the user can see their goal and both measure types, understand the score, and enter the next result. For an interactive file, check opening, observation entry, recalculation, and export/restore using available tools. Do not claim interface testing if it could not be performed; still provide a usable text view.
 
 At the end of each weekly session, show the updated dashboard alongside state and session notes. If the environment cannot update the previous artifact, create a dated new version and link while preserving history.
+
+## Dashboard form established during testing
+
+The required top-to-bottom order is **my WIG → overall path to the WIG → current stage and its steps → my weekly actions**. This is a presentation structure, not a requirement to have exactly three stages or seven actions.
+
+### User voice and outcome levels
+
+Phrase personal goals and measures in the first person: “I achieved…”, “I watched the lesson and took notes”, “I reviewed the assignment and corrected my notes.” For teams, use “We…”. The user owns the action, not the assistant. Label proposed actions “proposed”; a ✓ requires actual user-reported completion.
+
+Do not replace the ultimate WIG with a convenient stage goal. Show separately:
+- WIG: baseline, target, final deadline, achievement/sustained-result criterion, and actual lag.
+- Path: stages, completed stages, and the highlighted current stage; label proposed stages.
+- Current stage: its outcome, deadline, steps, acceptance criteria, and counts of verified units.
+- Week: influenceable actions and a clear execution verdict.
+
+If the user requires a result in each of several consecutive periods, check every period individually, continuity, and completion of the whole sequence by the deadline. An average does not meet that criterion. Do not add this requirement unless the user chose it.
+
+### Cells and an honest weekly score
+
+Use clickable action cells: **✓ done — green; × missed — red; · unreported — neutral**. Include text and accessible labels; color alone is insufficient. Allow changing and correcting a mark. Future and unknown actions do not automatically turn red.
+
+Show “I completed N of M,” with missed and unreported counts separately. After closing a seven-action week with 2 ✓ and 5 ×, say “I completed 2 of 7. Weekly plan not met.” With 2 ✓ and 5 unknowns, say “I completed 2 of 7; 5 actions remain unreported.” Do not label missing evidence a failure or hide confirmed misses. If every cell is unknown, show “— / M; no marks,” not a false measured zero.
+
+Derive the number of cells from agreed scope and capacity. Seven cells do not imply seven large tasks or seven lessons. A lesson, assignment review, and recap can be separate actions with distinct quality criteria. Hours constrain capacity; elapsed time alone does not prove an outcome.
+
+### Linked counts and history
+
+Each completed unit has a stable ID. Its weekly cell and overall inventory share one record: a mark updates both views. Do not count a unit twice. A compound outcome (such as material plus practice) requires all matching component IDs to be completed; do not use the minimum of two aggregate counts.
+
+Closing a week preserves a snapshot. Record late completion in a new period rather than rewriting a past miss as on-time completion. Record corrections to erroneous input separately. Starting a new weekly plan must not erase overall progress.
+
+All stage steps done means “ready for acceptance,” not automatic WIG achievement. Stage completion requires its acceptance criteria. Keep weekly execution, stage progress, and final outcome distinct; course completion percentages must not masquerade as progress toward income, health, or another ultimate outcome.
+
+### Ready-made form
+
+For file mode use [assets/dashboard.html](../assets/dashboard.html): WIG card, path, steps, linked cells, weekly verdict, actual lag entry, export/import, and a report. The lang field selects RU/EN UI. Populate CONFIG with user answers following [dashboard-schema.md](dashboard-schema.md) before delivery; do not leave it blank or include test data. Built-in artifacts must preserve this structure and behavior; text mode must reproduce it using tables and symbols.

@@ -18,6 +18,8 @@ In the same response:
 
 Do not finish the interview with only an answer summary, recommendations, an empty template, or a promise to create the result later. “One main question at a time” applies to gathering information, not to withholding a complete deliverable. If information is missing, still create a draft/baseline dashboard: leave genuinely unknown facts unknown, label proposed standards as proposals, then ask one question blocking activation. Missing agreement does not block a draft, but it must not be presented as approved.
 
+The dashboard must follow the tested form: **my WIG → overall path → current stage and its steps → my weekly actions**. Phrase measures in the user's first person. Use linked ✓/×/· cells with separate weekly, stage, and outcome progress. Read [references/dashboard.md](#references-dashboard-md) for the behavioral rules and [references/dashboard-schema.md](#references-dashboard-schema-md) to populate the ready-made [HTML form](#assets-dashboard-html). Do not replace the ultimate WIG with a stage goal.
+
 ## Choose the mode
 
 If a system already exists, start with its system state and latest scoreboard. Do not restart the interview. Choose the mode that matches the request:
@@ -72,7 +74,166 @@ In a new conversation, work from the latest state supplied by the user. Do not c
 
 An ordinary conversation does not activate a schedule. If separately asked for reminders, use an available scheduling tool and verify creation confirmation. Without a tool, offer event or reminder text without claiming it is running.
 
-All references and templates are embedded below. Links open their sections within this document.
+All references and templates, including the HTML source, are embedded below. Create a populated user dashboard from the HTML template; the template itself is not the user's finished dashboard.
+
+
+---
+
+<a id="assets-dashboard-html"></a>
+
+## Embedded file: assets/dashboard.html
+
+```html
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>4DX Dashboard</title>
+<style>
+:root{font:15px/1.5 system-ui,sans-serif;color:#20372e;background:#f2f5f3;--line:#dbe4de;--muted:#5d7166;--green:#176440}
+*{box-sizing:border-box}body{max-width:1180px;margin:auto;padding:24px}h1,h2,h3,p{margin:0}h1{font-size:30px;line-height:1.25}h2{font-size:20px}h3{font-size:16px}header,.panel{background:white;border-radius:18px;padding:24px;margin:18px 0}.hero{display:grid;grid-template-columns:2fr 1fr;gap:24px}.side{border-left:1px solid var(--line);padding-left:24px}.muted,small{color:var(--muted)}.label{font-size:12px;text-transform:uppercase;letter-spacing:.1em}.big{font-size:32px}.pill{display:inline-block;background:#e8efeb;padding:4px 10px;border-radius:30px;font-size:12px}.route{display:flex;gap:20px;flex-wrap:wrap}.phase{flex:1;min-width:170px;border-top:3px solid var(--line);padding-top:10px}.phase.current{border-color:var(--green)}.columns{display:grid;grid-template-columns:1fr 1fr;gap:18px}.columns .panel{margin:0}.row{display:flex;gap:12px;justify-content:space-between;align-items:center;flex-wrap:wrap}.step{padding:14px 0;border-bottom:1px solid var(--line)}progress{display:block;width:100%;height:10px;accent-color:var(--green)}.grid{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0}.slot{width:90px;text-align:center}.mark{display:block;margin:5px auto;min-width:44px;min-height:44px;font-size:22px;border:1px solid var(--line);background:#eef2ef;border-radius:9px}.mark[data-status=done]{background:#d8f1e1;color:#185d35}.mark[data-status=missed]{background:#fce4e2;color:#a0322e}.mark:disabled{opacity:1;cursor:default}button,input,select,textarea{font:inherit}button{cursor:pointer;border:1px solid var(--line);border-radius:8px;padding:8px 12px;background:#edf3ef;color:inherit}button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #4976d1;outline-offset:2px}.primary{background:var(--green);color:white}input,select,textarea{padding:7px;border:1px solid var(--line);border-radius:6px;max-width:100%}textarea{width:100%;min-height:200px}.verdict{padding:12px;background:#edf2ef;border-radius:10px;margin:12px 0}.verdict[data-tone=bad]{background:#fce4e2;color:#932b27}.verdict[data-tone=good]{background:#d8f1e1;color:#185d35}.scroll{overflow:auto}table{width:100%;border-collapse:collapse}td,th{text-align:left;padding:9px;border-bottom:1px solid var(--line);vertical-align:top}.form{display:flex;gap:10px;align-items:end;flex-wrap:wrap}.form label{display:grid;gap:4px}.form input{width:150px}details{margin:16px 0}summary{cursor:pointer}#notice{min-height:24px}#planner-list label{display:block;margin:8px 0}[hidden]{display:none!important}
+@media(max-width:760px){.columns,.hero{grid-template-columns:1fr}.side{border:0;padding:0}body{padding:12px}header,.panel{padding:18px}h1{font-size:25px}}
+</style>
+<body>
+<div class="label" id="brand"></div>
+<header class="hero"><div><div class="label" id="wig-label"></div><h1 id="goal"></h1><p class="big" id="target"></p><p class="pill" id="deadline"></p><p id="success"></p><p class="muted" id="baseline"></p></div><div class="side"><div class="label" id="now-label"></div><h3 id="current-title"></h3><p id="approval"></p><p id="lag-latest"></p><small id="version"></small></div></header>
+<section><div class="row"><h2 id="path-title"></h2><span id="path-count" class="pill"></span></div><div class="route" id="route"></div><p class="muted" id="path-note"></p></section>
+<div class="columns">
+<section class="panel"><div class="label" id="stage-label"></div><h2 id="stage-title"></h2><p id="stage-deadline"></p><div id="steps"></div><p id="stage-verdict" class="verdict"></p><p id="stage-acceptance"></p><div id="pairs"></div></section>
+<section class="panel"><div class="row"><h2 id="week-title"></h2><select id="week-select" aria-label="Week"></select></div><p id="week-range"></p><p id="week-plan"></p><div class="grid" id="week-grid"></div><p class="muted" id="legend"></p><p id="week-verdict" class="verdict" aria-live="polite"></p><button id="close-week" class="primary"></button><p id="next-review"></p></section>
+</div>
+<section class="panel"><h2 id="lag-title"></h2><p id="lag-definition"></p><div class="scroll"><table><thead><tr id="lag-head"></tr></thead><tbody id="lag-rows"></tbody></table></div>
+<form id="measure-form" class="form">
+<label><span id="period-label"></span><input id="period" required></label>
+<label><span id="plan-label"></span><input id="plan" type="number" step="any"></label>
+<label><span id="actual-label"></span><input id="actual" type="number" step="any"></label>
+<label><span id="source-label"></span><input id="source" required></label>
+<label><span id="date-label"></span><input id="measured" type="date" required></label>
+<button id="add-measure" type="submit"></button></form><p class="muted" id="measure-note"></p></section>
+<details class="panel"><summary id="inventory-title"></summary><div id="inventory"></div></details>
+<details class="panel"><summary id="planner-title"></summary><p id="planner-note"></p>
+<form id="planner"><div class="form"><label><span id="start-label"></span><input id="start" type="date" required></label><label><span id="end-label"></span><input id="end" type="date" required></label></div><div id="planner-list"></div><button id="create-week" type="submit"></button></form></details>
+<footer class="panel"><p id="persistence"></p><div class="row"><button id="export-json"></button><label><span id="import-label"></span> <input type="file" id="import-json" accept=".json,application/json"></label><button id="report-button"></button></div><p id="notice" role="status"></p><textarea id="report" hidden readonly aria-label="Report"></textarea></footer>
+<script>
+/* Assistant: populate CONFIG from the interview. Serialize safely: escape < as \u003c
+   and U+2028/U+2029 inside embedded JSON. Do not insert private test examples. */
+const CONFIG = {
+ schemaVersion:1,lang:"en",cycleId:"REPLACE-CYCLE-ID",revision:1,updatedAt:"",
+ approval:"draft",
+ wig:{statement:"",baseline:null,baselinePeriod:"",target:null,unit:"",deadline:"",successCriterion:"",lagName:"",direction:"higher",range:null},
+ currentStageId:"stage-1",
+ stages:[{id:"stage-1",title:"",deadline:"",status:"proposed",acceptance:"",steps:[]}],
+ units:[],pairs:[],weeks:[],measurements:[],changes:[]
+};
+/* units: {id,label,quality,leadId,status:"unknown|done|missed"}
+   steps: {id,title,unitIds:[...]}
+   weeks: {id,start,end,unitIds:[...],closed:false,snapshot:null,review:"",planStatus:"proposed|agreed"}
+   measurements: {period,plan:number|null,actual:number|null,source,date} */
+(() => {
+ const RU={
+ brand:"Моя система исполнения · 4ДИ",wig:"Моя КВЦ",now:"Где я сейчас",path:"Мой путь к КВЦ",stage:"Текущий этап",week:"Мои действия недели",lag:"Результат · запаздывающий показатель",
+ unknown:"Нет данных",unreported:"нет отметки",done:"я сделал",missed:"я не сделал",deadline:"Срок",baseline:"База",target:"Цель",draft:"Черновик / требуется согласование",approved:"Согласовано",
+ pathNote:"Прогресс этапов и действий не равен достижению конечной КВЦ.",stageReady:"Все шаги выполнены — готово к приёмке. КВЦ ещё требует проверки результата.",stageOpen:"Подтверждаю действия — отслеживаю шаги текущего этапа.",
+ acceptance:"Приёмка",pairs:"Завершённые составные результаты",legend:"✓ сделал · × не сделал · · нет отметки. Нажатие меняет отметку.",
+ complete:"Я выполнил",of:"из",noMarks:"Я ещё не внёс результаты.",unmarked:"без отметки",misses:"пропусков",notMet:"План недели не выполнен.",met:"План недели выполнен.",incomplete:"Результат неполный: остались действия без отметок.",
+ close:"Подвести итог и сохранить неделю",closed:"Неделя закрыта · сохранён снимок",review:"Следующий разбор",notAgreed:"не согласовано",inventory:"Все действия этапов и их отметки",planner:"Запланировать следующую неделю",plannerNote:"Выберите посильные действия. Завершённые единицы не включаются повторно; повторяющиеся действия помощник создаёт с новыми ID на новый период.",start:"Начало",end:"Окончание",create:"Создать согласованный план",emptyWeek:"План недели ещё не заполнен",noUnits:"Нет действий: заполните шаблон по опросу.",
+ period:"Период",plan:"План",actual:"Факт",source:"Источник",date:"Дата замера",status:"Статус",add:"Добавить замер",measureNote:"Пустой факт — нет данных. История сохраняется; для исправления добавьте новую запись с пояснением в источнике. Критерий устойчивости проверяется на обзоре, не по среднему.",onTrack:"По плану",behind:"Отстаём",
+ persistence:"Отметки хранятся в этой вкладке. Скачайте JSON для сохранения и загрузите его при следующем открытии. HTML и паспорт не обновляются автоматически; передайте отчёт/JSON помощнику.",
+ export:"Скачать данные JSON",import:"Восстановить JSON",report:"Сформировать мой отчёт",saved:"Файл данных подготовлен для скачивания.",restored:"Данные восстановлены.",invalid:"Не удалось загрузить данные этого цикла. Исходное состояние сохранено.",reportReady:"Отчёт готов: скопируйте его или скачайте JSON.",confirmImport:"Заменить текущие данные файлом? Сначала сохраните текущие данные, если они нужны.",needSelection:"Выберите действия и корректный диапазон дат.",unitQuality:"Засчитывается",confirmed:"подтверждено",draftPlan:"План предложен",agreedPlan:"План согласован"
+ };
+ const EN={
+ brand:"My execution system · 4DX",wig:"My WIG",now:"Where I am now",path:"My path to the WIG",stage:"Current stage",week:"My weekly actions",lag:"Outcome · lag measure",
+ unknown:"No data",unreported:"unreported",done:"I did it",missed:"I did not do it",deadline:"Deadline",baseline:"Baseline",target:"Target",draft:"Draft / agreement needed",approved:"Agreed",
+ pathNote:"Stage and action progress does not equal achievement of the ultimate WIG.",stageReady:"All steps done — ready for acceptance. The WIG still requires outcome verification.",stageOpen:"Confirm actions to track the current stage's steps.",
+ acceptance:"Acceptance",pairs:"Completed compound outcomes",legend:"✓ done · × missed · · unreported. Click to change a mark.",
+ complete:"I completed",of:"of",noMarks:"I have not entered results yet.",unmarked:"unreported",misses:"missed",notMet:"Weekly plan not met.",met:"Weekly plan met.",incomplete:"Incomplete result: some actions remain unreported.",
+ close:"Close and save this week",closed:"Week closed · snapshot saved",review:"Next review",notAgreed:"not agreed",inventory:"All stage actions and marks",planner:"Plan the next week",plannerNote:"Choose a feasible set of actions. Completed units are not repeated; the assistant creates new IDs for recurring actions in a new period.",start:"Start",end:"End",create:"Create agreed plan",emptyWeek:"No weekly plan yet",noUnits:"No actions: populate the template from the interview.",
+ period:"Period",plan:"Plan",actual:"Actual",source:"Source",date:"Measurement date",status:"Status",add:"Add observation",measureNote:"A blank actual means no data. History is preserved; add a new entry with an explanation in the source to correct a value. Sustained-result criteria are reviewed separately, not inferred from an average.",onTrack:"On track",behind:"Behind",
+ persistence:"Marks are held in this tab. Download JSON to save them and import it next time. The HTML and system state do not update automatically; send the report/JSON to your assistant.",
+ export:"Download JSON data",import:"Restore JSON",report:"Generate my report",saved:"Data file prepared for download.",restored:"Data restored.",invalid:"Could not load data for this cycle. Existing state preserved.",reportReady:"Report ready: copy it or download JSON.",confirmImport:"Replace current data with the file? Save your current data first if needed.",needSelection:"Select actions and a valid date range.",unitQuality:"Counts when",confirmed:"confirmed",draftPlan:"Proposed plan",agreedPlan:"Agreed plan"
+ };
+ let state=structuredClone(CONFIG),selectedWeek=state.weeks.length-1;
+ let t=state.lang==="ru"?RU:EN;
+ const q=id=>document.getElementById(id),set=(id,v)=>q(id).textContent=String(v),allowed=["unknown","done","missed"],symbols={unknown:"·",done:"✓",missed:"×"};
+ const unit=id=>state.units.find(u=>u.id===id);
+ const week=()=>state.weeks[selectedWeek];
+ const stage=()=>state.stages.find(s=>s.id===state.currentStageId);
+ const statuses=ids=>ids.map(id=>unit(id).status);
+ const count=a=>a.filter(v=>v==="done").length;
+ const counter=a=>(a.some(v=>v!=="unknown")?count(a):"—")+" / "+a.length;
+ const display=v=>v===null||v===undefined||v===""?t.unknown:String(v);
+ function node(tag,text,cls){const el=document.createElement(tag);if(text!==undefined)el.textContent=text;if(cls)el.className=cls;return el;}
+ function touch(kind,detail){state.revision++;state.updatedAt=new Date().toISOString();state.changes.push({at:state.updatedAt,kind,detail});}
+ function mark(id){const u=unit(id);u.status=allowed[(allowed.indexOf(u.status)+1)%3];touch("mark",{unitId:id,status:u.status});render();}
+ function button(u,value,locked){const b=node("button",symbols[value],"mark");b.type="button";b.title=t.unitQuality+": "+u.quality;b.dataset.status=value;b.setAttribute("aria-label",u.label+": "+t[value==="unknown"?"unreported":value]);b.disabled=locked;b.addEventListener("click",()=>mark(u.id));return b;}
+ function card(u,value,locked){const el=node("div",undefined,"slot");el.append(button(u,value,locked),node("small",u.label));return el;}
+ function verdict(a,closed,agreed){if(!a.length)return {text:t.emptyWeek,tone:"neutral"};const n=count(a),missing=a.filter(v=>v==="unknown").length,missed=a.filter(v=>v==="missed").length;
+ if(missing===a.length)return {text:t.noMarks,tone:"neutral"};
+ let text=t.complete+" "+n+" "+t.of+" "+a.length+" · "+missed+" "+t.misses+" · "+missing+" "+t.unmarked+".";
+ if(closed&&missing)text+=" "+t.incomplete;
+ else if(closed&&agreed)text+=" "+(n===a.length?t.met:t.notMet);
+ return {text,tone:closed&&!missing&&agreed?(n===a.length?"good":"bad"):"neutral"};}
+ function measureStatus(m){if(m.actual===null||m.plan===null)return t.unknown;if(state.approval!=="agreed")return t.draft;
+ if(state.wig.direction==="range"){const r=state.wig.range;if(!r)return t.unknown;return m.actual>=r[0]&&m.actual<=r[1]?t.onTrack:t.behind;}
+ return (state.wig.direction==="lower"?m.actual<=m.plan:m.actual>=m.plan)?t.onTrack:t.behind;}
+ function render(){
+ t=state.lang==="ru"?RU:EN;document.documentElement.lang=state.lang;
+ for(const [id,key]of Object.entries({"brand":"brand","wig-label":"wig","now-label":"now","path-title":"path","stage-label":"stage","week-title":"week","lag-title":"lag","path-note":"pathNote","legend":"legend","inventory-title":"inventory","planner-title":"planner","planner-note":"plannerNote","start-label":"start","end-label":"end","create-week":"create","period-label":"period","plan-label":"plan","actual-label":"actual","source-label":"source","date-label":"date","add-measure":"add","measure-note":"measureNote","persistence":"persistence","export-json":"export","import-label":"import","report-button":"report"}))set(id,t[key]);
+ set("goal",display(state.wig.statement));set("target",t.target+": "+display(state.wig.target)+" "+state.wig.unit);set("deadline",t.deadline+": "+display(state.wig.deadline));set("success",display(state.wig.successCriterion));set("baseline",t.baseline+": "+display(state.wig.baseline)+" "+state.wig.unit+" · "+display(state.wig.baselinePeriod));set("approval",state.approval==="agreed"?t.approved:t.draft);set("version",state.cycleId+" · v"+state.revision+" · "+display(state.updatedAt));
+ const s=stage();set("current-title",display(s.title));set("stage-title",display(s.title));set("stage-deadline",t.deadline+": "+display(s.deadline));set("stage-acceptance",t.acceptance+": "+display(s.acceptance));
+ set("path-count",state.stages.filter(x=>x.status==="completed").length+" / "+state.stages.length+" "+t.confirmed);
+ q("route").replaceChildren();state.stages.forEach((x,i)=>{const el=node("div",undefined,"phase"+(x.id===s.id?" current":""));el.append(node("h3",(i+1)+". "+display(x.title)),node("small",x.status));q("route").append(el);});
+ q("steps").replaceChildren();let ready=0;s.steps.forEach(x=>{const a=statuses(x.unitIds);const el=node("div",undefined,"step");el.append(node("h3",x.title),node("span",counter(a)));const bar=node("progress");bar.max=a.length||1;bar.value=count(a);bar.setAttribute("aria-label",x.title);bar.setAttribute("aria-valuetext",counter(a));el.append(bar);q("steps").append(el);if(a.length&&count(a)===a.length)ready++;});
+ set("stage-verdict",s.steps.length&&ready===s.steps.length?t.stageReady:t.stageOpen);
+ q("pairs").replaceChildren();state.pairs.forEach(p=>{const complete=p.groups.filter(ids=>ids.every(id=>unit(id).status==="done")).length;q("pairs").append(node("p",p.label+": "+complete+" / "+p.groups.length+" "+t.confirmed));});
+ q("week-select").replaceChildren();state.weeks.forEach((w,i)=>{const o=node("option",w.start+" — "+w.end);o.value=String(i);q("week-select").append(o);});q("week-select").value=String(selectedWeek);
+ const w=week();q("week-grid").replaceChildren();set("week-range",w?w.start+" — "+w.end:t.emptyWeek);set("week-plan",w?(w.planStatus==="agreed"?t.agreedPlan:t.draftPlan):"");
+ const a=w?(w.closed?w.snapshot:w.unitIds.map(id=>unit(id).status)):[];if(w)w.unitIds.forEach((id,i)=>q("week-grid").append(card(unit(id),a[i],w.closed)));
+ const v=verdict(a,w?.closed,w?.planStatus==="agreed");set("week-verdict",v.text);q("week-verdict").dataset.tone=v.tone;
+ set("close-week",w?.closed?t.closed:t.close);q("close-week").disabled=!w||w.closed;set("next-review",t.review+": "+(w?.review||t.notAgreed));
+ q("inventory").replaceChildren();if(!state.units.length)q("inventory").append(node("p",t.noUnits));
+ state.stages.forEach(st=>st.steps.forEach(step=>{const box=node("div");box.append(node("h3",step.title));const grid=node("div",undefined,"grid");step.unitIds.forEach(id=>grid.append(card(unit(id),unit(id).status,false)));box.append(grid);q("inventory").append(box);}));
+ const inventoryIds=new Set(state.stages.flatMap(st=>st.steps.flatMap(x=>x.unitIds)));const rest=state.units.filter(u=>!inventoryIds.has(u.id));if(rest.length){const grid=node("div",undefined,"grid");rest.forEach(u=>grid.append(card(u,u.status,false)));q("inventory").append(grid);}
+ q("planner-list").replaceChildren();state.units.filter(u=>u.status!=="done").forEach(u=>{const l=node("label"),input=node("input");input.type="checkbox";input.value=u.id;input.name="unit";l.append(input,node("span"," "+u.label+" · "+t.unitQuality+": "+u.quality));q("planner-list").append(l);});
+ set("lag-definition",display(state.wig.lagName)+" · "+state.wig.unit);q("lag-head").replaceChildren(...["period","plan","actual","status","source","date"].map(k=>node("th",t[k])));
+ q("lag-rows").replaceChildren();state.measurements.forEach(m=>{const row=node("tr");[m.period,display(m.plan),display(m.actual),measureStatus(m),m.source,m.date].forEach(v=>row.append(node("td",v)));q("lag-rows").append(row);});
+ const last=state.measurements.at(-1);set("lag-latest",t.actual+": "+(last?display(last.actual)+" "+state.wig.unit+" · "+last.period:t.unknown));
+ if(!q("report").hidden)q("report").value=report();
+ }
+ function report(){return [state.wig.statement,t.deadline+": "+display(state.wig.deadline),state.wig.successCriterion,t.stage+": "+stage().title,...state.stages.flatMap(s=>s.steps.map(x=>x.title+": "+counter(statuses(x.unitIds)))),...state.weeks.flatMap(w=>[w.start+" — "+w.end,...w.unitIds.map((id,i)=>symbols[w.closed?w.snapshot[i]:unit(id).status]+" "+unit(id).label),verdict(w.closed?w.snapshot:statuses(w.unitIds),w.closed,w.planStatus==="agreed").text]),t.lag,...state.measurements.map(m=>m.period+": "+display(m.actual)+" / "+display(m.plan)+" "+state.wig.unit+"; "+m.source+"; "+m.date),"ID "+state.cycleId+" · v"+state.revision,t.persistence].join("\n");}
+ function validate(v){
+ if(!v||v.schemaVersion!==1||v.cycleId!==CONFIG.cycleId||!["ru","en"].includes(v.lang)||!Number.isInteger(v.revision)||v.revision<1||typeof v.updatedAt!=="string"||!["draft","agreed"].includes(v.approval))throw Error("header");
+ const str=x=>typeof x==="string",num=x=>x===null||typeof x==="number"&&Number.isFinite(x);
+ if(!v.wig||!["statement","baselinePeriod","unit","deadline","successCriterion","lagName"].every(k=>str(v.wig[k]))||!num(v.wig.baseline)||!num(v.wig.target)||!["lower","higher","range"].includes(v.wig.direction))throw Error("wig");
+ if(v.wig.direction==="range"&&(!Array.isArray(v.wig.range)||v.wig.range.length!==2||!v.wig.range.every(x=>typeof x==="number"&&Number.isFinite(x))||v.wig.range[0]>v.wig.range[1]))throw Error("range");
+ for(const key of ["stages","units","pairs","weeks","measurements","changes"])if(!Array.isArray(v[key]))throw Error(key);
+ const ids=new Set();v.units.forEach(u=>{if(!u||!str(u.id)||ids.has(u.id)||!str(u.label)||!str(u.quality)||!str(u.leadId)||!allowed.includes(u.status))throw Error("unit");ids.add(u.id);});
+ const refs=a=>Array.isArray(a)&&a.length===new Set(a).size&&a.every(id=>ids.has(id));
+ const stages=new Set();v.stages.forEach(s=>{if(!s||!str(s.id)||stages.has(s.id)||!str(s.title)||!str(s.deadline)||!str(s.acceptance)||!["proposed","active","completed"].includes(s.status)||!Array.isArray(s.steps))throw Error("stage");stages.add(s.id);s.steps.forEach(x=>{if(!str(x.id)||!str(x.title)||!refs(x.unitIds))throw Error("step");});});
+ if(!stages.has(v.currentStageId))throw Error("current stage");
+ v.pairs.forEach(p=>{if(!str(p.label)||!Array.isArray(p.groups)||!p.groups.every(g=>refs(g)&&g.length))throw Error("pairs");});
+ const weeks=new Set();v.weeks.forEach(w=>{if(!w||!str(w.id)||weeks.has(w.id)||!str(w.start)||!str(w.end)||!refs(w.unitIds)||typeof w.closed!=="boolean"||!str(w.review)||!["proposed","agreed"].includes(w.planStatus))throw Error("week");weeks.add(w.id);if(w.closed&&(!Array.isArray(w.snapshot)||w.snapshot.length!==w.unitIds.length||!w.snapshot.every(x=>allowed.includes(x))))throw Error("snapshot");});
+ v.measurements.forEach(m=>{if(!m||!str(m.period)||!num(m.plan)||!num(m.actual)||!str(m.source)||!str(m.date))throw Error("measurement");});
+ return v;
+ }
+ q("week-select").addEventListener("change",()=>{selectedWeek=Number(q("week-select").value);render();});
+ q("close-week").addEventListener("click",()=>{const w=week();if(!w||w.closed)return;w.snapshot=statuses(w.unitIds);w.closed=true;touch("close-week",{weekId:w.id});render();});
+ q("measure-form").addEventListener("submit",e=>{e.preventDefault();const number=id=>q(id).value.trim()===""?null:Number(q(id).value);const plan=number("plan"),actual=number("actual");if([plan,actual].some(x=>x!==null&&!Number.isFinite(x)))return;state.measurements.push({period:q("period").value,plan,actual,source:q("source").value,date:q("measured").value});touch("measurement",state.measurements.at(-1));render();});
+ q("planner").addEventListener("submit",e=>{e.preventDefault();const ids=Array.from(q("planner-list").querySelectorAll("input:checked")).map(x=>x.value),start=q("start").value,end=q("end").value;
+ if(!ids.length||!start||!end||start>end){set("notice",t.needSelection);return;}
+ const previous=state.weeks.at(-1);if(previous&&!previous.closed){previous.snapshot=statuses(previous.unitIds);previous.closed=true;}
+ ids.forEach(id=>{unit(id).status="unknown";});
+ state.weeks.push({id:"week-"+Date.now()+"-"+state.weeks.length,start,end,unitIds:ids,closed:false,snapshot:null,review:"",planStatus:"agreed"});selectedWeek=state.weeks.length-1;touch("new-week",{start,end});render();});
+ q("export-json").addEventListener("click",()=>{const url=URL.createObjectURL(new Blob([JSON.stringify(state,null,2)],{type:"application/json"}));const a=node("a");a.href=url;a.download="4dx-state.json";document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);set("notice",t.saved);});
+ q("import-json").addEventListener("change",async()=>{const f=q("import-json").files[0];if(!f)return;try{if(f.size>2000000)throw Error("size");const candidate=validate(JSON.parse(await f.text()));if(!window.confirm(t.confirmImport))return;state=structuredClone(candidate);selectedWeek=state.weeks.length-1;render();set("notice",t.restored);}catch{set("notice",t.invalid);}q("import-json").value="";});
+ q("report-button").addEventListener("click",()=>{q("report").hidden=false;q("report").value=report();set("notice",t.reportReady);});
+ validate(state);render();
+})();
+</script>
+</body>
+</html>
+
+```
 
 
 ---
@@ -95,6 +256,22 @@ All references and templates are embedded below. Links open their sections withi
 
 Baseline: [X, unit, period, source]. Finish line: [Y, date, acceptance criterion].
 Why it matters: [purpose from the user's answers].
+
+## My path to the WIG
+
+| Stage | My outcome | Status | Acceptance |
+|---|---|---|---|
+| [ID] | [I / We achieved ...] | [proposed / current / completed] | [verifiable criterion] |
+
+## Current stage and steps
+
+**[My current stage outcome]** · Deadline: [date / proposed / unknown]
+
+| Step | Linked unit IDs | Confirmed / total | Acceptance criterion |
+|---|---|---|---|
+| [I completed ...] | [IDs shared with weekly cells] | [— / total until evidence exists] | [quality] |
+
+Stage progress does not represent a percentage of final WIG achievement.
 
 ## Outcome — lag measure
 
@@ -134,6 +311,16 @@ Decisions needed: [actual gaps only].
 
 [For an artifact/HTML: where to enter an observation, export data, and restore it. For text mode: “Send the period, measure, value/underlying counts, source, and commitment results; I will update the dashboard.”]
 Current system state: [real link or portable block in the response].
+
+## My weekly action cells
+
+| Action in my voice | Unit ID | Planned date | Mark |
+|---|---|---|---|
+| [I completed ...] | [stable ID] | [date] | · |
+
+✓ done · × missed · · unreported. Derive the cell count from the agreed plan.
+Summary: I completed [N] of [M]; [missed] missed; [unknown] unreported.
+Keep this text view consistent with the HTML form and state.
 
 
 ---
@@ -239,6 +426,17 @@ Keep the date, underlying counts, source, brief conclusion, and a link to separa
 - Next update procedure:
 - State synchronization: implemented and verified / manual using exported data
 
+## Path, stages, and linked actions
+
+- Ultimate WIG (not replaced by the current stage):
+- Exact sustained-result criterion, if chosen; consecutive periods and deadline:
+- Stage IDs, first-person outcomes, proposed/agreed status, acceptance criteria:
+- Current stage ID and deadline:
+- Step IDs and linked unit IDs; compound outcomes require matching components:
+- Weekly periods, unit IDs, and done/missed/unreported marks:
+- Closed-week snapshots and separately logged corrections:
+- Dashboard export schemaVersion and revision:
+
 
 ---
 
@@ -315,6 +513,50 @@ Additions in this adaptation: one main question at a time; portable system state
 
 The mandatory post-interview dashboard delivery, interactive presentation, and data export/restore are implementation requirements of this AI adaptation, not claims about the book's original format.
 
+The first-person dashboard, stage route, tri-state cells, linked unit IDs, and closed-week snapshots were added after user testing. They are interface and data-handling adaptations, not a new universal number of stages or weekly actions prescribed by the authors.
+
+
+---
+
+<a id="references-dashboard-schema-md"></a>
+
+## Embedded file: references/dashboard-schema.md
+
+# Populate the ready-made HTML form
+
+assets/dashboard.html is self-contained: no libraries, network, or installation. Read it as a template, replace CONFIG with the user's data, and deliver a separate dashboard.html. Do not modify the installed skill for a personal goal. lang selects ru or en. A built-in visual artifact may reproduce this form while preserving its behavior.
+
+## Data model
+
+- schemaVersion: 1; cycleId is the stable cycle ID; revision is a positive integer; updatedAt is the update date; approval is draft or agreed.
+- wig: statement (first person), baseline (number or null), baselinePeriod, target (number or null), unit, deadline, successCriterion, lagName, direction (higher/lower/range), range (lower/upper bounds for range).
+- stages: array of {id, title, deadline, status: proposed/active/completed, acceptance, steps}. currentStageId references an existing stage. There is no fixed stage count.
+- steps: {id, title, unitIds}. Use first-person titles and stable IDs for verifiable units.
+- units: {id, label, quality, leadId, status: unknown/done/missed}. Each unit exists once. Weekly cells and stage steps reference the same ID.
+- pairs: optional compound outcomes [{label, groups: [[component 1 ID, component 2 ID], ...]}]. Components count only when the matching group is complete, not any two marks.
+- weeks: {id, start, end, unitIds, closed, snapshot, review, planStatus: proposed/agreed}. An open week uses current unit marks; a closed week uses snapshot statuses in unitIds order.
+- measurements: [{period, plan, actual, source, date}]. plan and actual are numbers or null, never empty strings or invented zeros.
+- changes: change-log array. Preserve previous entries when continuing.
+
+Empty strings and null in the source template are fields to populate, not a finished user deliverable. Keep unknowns unknown. Use agreed only for agreed definitions; retain stage acceptance agreement in its description. Mark a stage completed only after acceptance, not automatically from a counter.
+
+## Preparation and use
+
+1. Formulate the ultimate WIG, then the route and current stage. Do not import personal goals from examples.
+2. Fit weekly actions to capacity and link them to stage units. Split compound actions when their parts can be completed separately. A recurring action in a new week receives a new ID; repeated records of one unit must not inflate the stage's finite outcome.
+3. Populate weeks with real dates; proposals remain proposed. Preserve existing reports.
+4. Serialize CONFIG safely using JSON.stringify/json.dumps, then replace < with the literal sequence \\u003c and U+2028/U+2029 with their JSON escape sequences so user text cannot close the script. UI strings are rendered through textContent.
+5. Open the HTML and check marks, weekly counts, stage progress, week closing, JSON export, and restore. Describing the interface is not an opening test.
+6. Deliver the file and briefly explain marks, closing a week, saving JSON, and giving the report to the assistant.
+
+## Template boundaries
+
+This is a working base populated at setup, not a universal domain model. Built-in lag entry supports a numeric plan and actual for a named period. For proportions, add numerator/denominator inputs and nonzero-denominator checks before delivery, or explicitly retain underlying counts in the source; do not replace a proportion with a cell count.
+
+The new-week button selects existing unfinished units. For new/recurring actions, the assistant adds unique units to the next version while preserving the user's export. Creating a new week archives an open current week; historical snapshots remain unchanged. The assistant separately checks consecutive-period criteria from observations: the template never automatically declares the WIG achieved.
+
+State is held in the open tab. Persistence across openings uses explicit JSON export/import, not automatic synchronization. Files for a different cycleId are rejected. Do not promise reminders or automatic data collection.
+
 
 ---
 
@@ -369,6 +611,42 @@ A green lead does not turn a red lag green. Show outcomes and actions separately
 Verify that the user can see their goal and both measure types, understand the score, and enter the next result. For an interactive file, check opening, observation entry, recalculation, and export/restore using available tools. Do not claim interface testing if it could not be performed; still provide a usable text view.
 
 At the end of each weekly session, show the updated dashboard alongside state and session notes. If the environment cannot update the previous artifact, create a dated new version and link while preserving history.
+
+## Dashboard form established during testing
+
+The required top-to-bottom order is **my WIG → overall path to the WIG → current stage and its steps → my weekly actions**. This is a presentation structure, not a requirement to have exactly three stages or seven actions.
+
+### User voice and outcome levels
+
+Phrase personal goals and measures in the first person: “I achieved…”, “I watched the lesson and took notes”, “I reviewed the assignment and corrected my notes.” For teams, use “We…”. The user owns the action, not the assistant. Label proposed actions “proposed”; a ✓ requires actual user-reported completion.
+
+Do not replace the ultimate WIG with a convenient stage goal. Show separately:
+- WIG: baseline, target, final deadline, achievement/sustained-result criterion, and actual lag.
+- Path: stages, completed stages, and the highlighted current stage; label proposed stages.
+- Current stage: its outcome, deadline, steps, acceptance criteria, and counts of verified units.
+- Week: influenceable actions and a clear execution verdict.
+
+If the user requires a result in each of several consecutive periods, check every period individually, continuity, and completion of the whole sequence by the deadline. An average does not meet that criterion. Do not add this requirement unless the user chose it.
+
+### Cells and an honest weekly score
+
+Use clickable action cells: **✓ done — green; × missed — red; · unreported — neutral**. Include text and accessible labels; color alone is insufficient. Allow changing and correcting a mark. Future and unknown actions do not automatically turn red.
+
+Show “I completed N of M,” with missed and unreported counts separately. After closing a seven-action week with 2 ✓ and 5 ×, say “I completed 2 of 7. Weekly plan not met.” With 2 ✓ and 5 unknowns, say “I completed 2 of 7; 5 actions remain unreported.” Do not label missing evidence a failure or hide confirmed misses. If every cell is unknown, show “— / M; no marks,” not a false measured zero.
+
+Derive the number of cells from agreed scope and capacity. Seven cells do not imply seven large tasks or seven lessons. A lesson, assignment review, and recap can be separate actions with distinct quality criteria. Hours constrain capacity; elapsed time alone does not prove an outcome.
+
+### Linked counts and history
+
+Each completed unit has a stable ID. Its weekly cell and overall inventory share one record: a mark updates both views. Do not count a unit twice. A compound outcome (such as material plus practice) requires all matching component IDs to be completed; do not use the minimum of two aggregate counts.
+
+Closing a week preserves a snapshot. Record late completion in a new period rather than rewriting a past miss as on-time completion. Record corrections to erroneous input separately. Starting a new weekly plan must not erase overall progress.
+
+All stage steps done means “ready for acceptance,” not automatic WIG achievement. Stage completion requires its acceptance criteria. Keep weekly execution, stage progress, and final outcome distinct; course completion percentages must not masquerade as progress toward income, health, or another ultimate outcome.
+
+### Ready-made form
+
+For file mode use [assets/dashboard.html](#assets-dashboard-html): WIG card, path, steps, linked cells, weekly verdict, actual lag entry, export/import, and a report. The lang field selects RU/EN UI. Populate CONFIG with user answers following [dashboard-schema.md](#references-dashboard-schema-md) before delivery; do not leave it blank or include test data. Built-in artifacts must preserve this structure and behavior; text mode must reproduce it using tables and symbols.
 
 
 ---
@@ -544,6 +822,10 @@ Ending the interview triggers creation of the deliverable, not another offer to 
 
 If the baseline, standards, deadline, or agreement is missing, show a usable draft with labeled gaps and proposals instead of postponing the whole result. Do not invent actuals. Ask the next genuinely necessary question only after showing the result. Active status requires agreement; creating a draft does not.
 
+## Keep the ultimate goal visible
+
+Before planning the current stage, retain the user's ultimate WIG and its deadline and achievement criterion. If the user defines sustained performance across consecutive periods, record that exact condition rather than an average. Distinguish the stage's measurable outcome from the final WIG lag. Estimate workload from the actual components and available time before proposing a weekly cell count; do not copy the number seven from an example. Phrase action measures in the user's first person.
+
 
 ---
 
@@ -593,6 +875,10 @@ If the WIG has been achieved, verify its criteria, record the result, and close 
 ## Required dashboard delivery
 
 After the review, update and show the dashboard itself following [dashboard.md](#references-dashboard-md), rather than merely saying it was updated. Preserve definitions, history, and the link to the current state version. If measurements are missing, show “no data” for the relevant period and the next step to obtain them.
+
+## Review linked cells
+
+Use the user's first-person report and the explicit done/missed/unreported states. Show completed N of M, missed count, and unreported count. Closing a week freezes its snapshot; later work must not overwrite it. Reconcile matching unit IDs across weekly and stage views, preserving history and avoiding double counting. All steps marked done means ready for acceptance, not automatic stage or WIG completion.
 
 
 ---

@@ -20,6 +20,8 @@ In the same response:
 
 Do not finish the interview with only an answer summary, recommendations, an empty template, or a promise to create the result later. “One main question at a time” applies to gathering information, not to withholding a complete deliverable. If information is missing, still create a draft/baseline dashboard: leave genuinely unknown facts unknown, label proposed standards as proposals, then ask one question blocking activation. Missing agreement does not block a draft, but it must not be presented as approved.
 
+The dashboard must follow the tested form: **my WIG → overall path → current stage and its steps → my weekly actions**. Phrase measures in the user's first person. Use linked ✓/×/· cells with separate weekly, stage, and outcome progress. Read [references/dashboard.md](references/dashboard.md) for the behavioral rules and [references/dashboard-schema.md](references/dashboard-schema.md) to populate the ready-made [HTML form](assets/dashboard.html). Do not replace the ultimate WIG with a stage goal.
+
 ## Choose the mode
 
 If a system already exists, start with its system state and latest scoreboard. Do not restart the interview. Choose the mode that matches the request:

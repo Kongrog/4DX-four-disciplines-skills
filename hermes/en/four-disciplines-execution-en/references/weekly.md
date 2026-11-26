@@ -40,3 +40,7 @@ If the WIG has been achieved, verify its criteria, record the result, and close 
 ## Required dashboard delivery
 
 After the review, update and show the dashboard itself following [dashboard.md](dashboard.md), rather than merely saying it was updated. Preserve definitions, history, and the link to the current state version. If measurements are missing, show “no data” for the relevant period and the next step to obtain them.
+
+## Review linked cells
+
+Use the user's first-person report and the explicit done/missed/unreported states. Show completed N of M, missed count, and unreported count. Closing a week freezes its snapshot; later work must not overwrite it. Reconcile matching unit IDs across weekly and stage views, preserving history and avoiding double counting. All steps marked done means ready for acceptance, not automatic stage or WIG completion.

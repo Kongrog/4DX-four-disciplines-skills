@@ -76,3 +76,7 @@ Build the state using [the system-state template](../assets/system-state.md). Se
 Ending the interview triggers creation of the deliverable, not another offer to help. In the same response, formulate the WIG, lag, and lead measures, populate and show the ready-to-use dashboard following [dashboard.md](dashboard.md), then provide state and first commitments. Do not ask whether to create the dashboard.
 
 If the baseline, standards, deadline, or agreement is missing, show a usable draft with labeled gaps and proposals instead of postponing the whole result. Do not invent actuals. Ask the next genuinely necessary question only after showing the result. Active status requires agreement; creating a draft does not.
+
+## Keep the ultimate goal visible
+
+Before planning the current stage, retain the user's ultimate WIG and its deadline and achievement criterion. If the user defines sustained performance across consecutive periods, record that exact condition rather than an average. Distinguish the stage's measurable outcome from the final WIG lag. Estimate workload from the actual components and available time before proposing a weekly cell count; do not copy the number seven from an example. Phrase action measures in the user's first person.

@@ -13,6 +13,22 @@
 Baseline: [X, unit, period, source]. Finish line: [Y, date, acceptance criterion].
 Why it matters: [purpose from the user's answers].
 
+## My path to the WIG
+
+| Stage | My outcome | Status | Acceptance |
+|---|---|---|---|
+| [ID] | [I / We achieved ...] | [proposed / current / completed] | [verifiable criterion] |
+
+## Current stage and steps
+
+**[My current stage outcome]** · Deadline: [date / proposed / unknown]
+
+| Step | Linked unit IDs | Confirmed / total | Acceptance criterion |
+|---|---|---|---|
+| [I completed ...] | [IDs shared with weekly cells] | [— / total until evidence exists] | [quality] |
+
+Stage progress does not represent a percentage of final WIG achievement.
+
 ## Outcome — lag measure
 
 | Measure and unit | Period | Period plan | Actual | Status | Source / date |
@@ -51,3 +67,13 @@ Decisions needed: [actual gaps only].
 
 [For an artifact/HTML: where to enter an observation, export data, and restore it. For text mode: “Send the period, measure, value/underlying counts, source, and commitment results; I will update the dashboard.”]
 Current system state: [real link or portable block in the response].
+
+## My weekly action cells
+
+| Action in my voice | Unit ID | Planned date | Mark |
+|---|---|---|---|
+| [I completed ...] | [stable ID] | [date] | · |
+
+✓ done · × missed · · unreported. Derive the cell count from the agreed plan.
+Summary: I completed [N] of [M]; [missed] missed; [unknown] unreported.
+Keep this text view consistent with the HTML form and state.
