@@ -6,11 +6,23 @@ Use this document as an instruction at my explicit request. Help me build the sy
 
 Help the user build a working 4DX system: WIG → lead measures → scoreboard → weekly accountability. Bring each stage to a concrete result, rather than only explaining the method. Respond in the user's language.
 
+## Required interview outcome: a ready-to-use dashboard
+
+The interview is preparation, not the deliverable. Once the desired outcome, context, and constraints are clear, synthesize the system. If the user says they have finished answering, deliver the result using the available information immediately. Do not wait for a separate request to formulate the goal, choose measures, or build the dashboard, and do not ask whether to do so.
+
+In the same response:
+1. Formulate a specific WIG: “from X to Y by date.” If not yet confirmed, label it a proposed goal rather than the user's decision.
+2. Define the lag outcome measure and a small set of lead measures, including units, periods, standards, quality, sources, and their connection to the goal.
+3. Create and show a dashboard populated with the user's data using [references/dashboard.md](#references-dashboard-md) and [assets/dashboard.md](#assets-dashboard-md): goal, measures, plan versus actual, first week, commitments, next review, and update instructions.
+4. Include the current system state. The dashboard and state must represent the same data version.
+
+Do not finish the interview with only an answer summary, recommendations, an empty template, or a promise to create the result later. “One main question at a time” applies to gathering information, not to withholding a complete deliverable. If information is missing, still create a draft/baseline dashboard: leave genuinely unknown facts unknown, label proposed standards as proposals, then ask one question blocking activation. Missing agreement does not block a draft, but it must not be presented as approved.
+
 ## Choose the mode
 
 If a system already exists, start with its system state and latest scoreboard. Do not restart the interview. Choose the mode that matches the request:
 
-- **Setup / choosing a goal / building a scoreboard:** read [references/setup.md](#references-setup-md). Deliver an agreed system state and first commitments.
+- **Setup / choosing a goal / building a scoreboard:** read [references/setup.md](#references-setup-md). Deliver the formulated WIG and measures, a populated dashboard, system state, and first commitments.
 - **Weekly WIG session:** read [references/weekly.md](#references-weekly-md). Review previous commitments, choose new ones, and update the scoreboard.
 - **Stalled progress / overload / ineffective measures:** read [references/recovery.md](#references-recovery-md). Identify the weak point and a testable adjustment.
 - **Multiple teams / organizational rollout:** read [references/organization.md](#references-organization-md). Align goals and responsibilities and plan launch and support.
@@ -60,7 +72,68 @@ In a new conversation, work from the latest state supplied by the user. Do not c
 
 An ordinary conversation does not activate a schedule. If separately asked for reminders, use an available scheduling tool and verify creation confirmation. Without a tool, offer event or reminder text without claiming it is running.
 
-All linked references and templates are embedded below. The references/ and assets/ paths identify the corresponding embedded sections.
+All references and templates are embedded below. Links open their sections within this document.
+
+
+---
+
+<a id="assets-dashboard-md"></a>
+
+## Embedded file: assets/dashboard.md
+
+# My 4DX dashboard
+
+> Template for the assistant: replace fields with interview data before delivery. Mark missing information “unknown / agreement needed.” Do not deliver an empty template as the finished result.
+
+## Goal
+
+**[Formulated WIG: from X to Y by an exact date]**
+
+| Owner | System / approval status | Updated | Version |
+|---|---|---|---|
+| [owner] | [draft / baseline / active; what is agreed] | [date and time zone] | [ID / version] |
+
+Baseline: [X, unit, period, source]. Finish line: [Y, date, acceptance criterion].
+Why it matters: [purpose from the user's answers].
+
+## Outcome — lag measure
+
+| Measure and unit | Period | Period plan | Actual | Status | Source / date |
+|---|---|---|---|---|---|
+| [lag name] | [period] | [plan or not agreed] | [actual or no data] | [on track / behind / no data / draft] | [source] |
+
+## Actions — lead measures
+
+| Measure | Standard and period | Quality criterion | Period actual | Status | Source / date |
+|---|---|---|---|---|---|
+| [specific lead] | [standard or proposal] | [what counts] | [actual or no data] | [status] | [source] |
+
+Connection to the goal: [why each lead should influence lag; evidence or hypothesis].
+Effect review: [expected delay and hypothesis review date].
+
+## History and next observations
+
+| Period | Measure | Plan | Actual / underlying counts | Source | Note |
+|---|---|---|---|---|---|
+| [initial period] | [lag/lead] | [plan] | [known actual or no data] | [source] | [baseline / current period] |
+| [next period] | [lag/lead] | [plan or not agreed] | no data | pending | next observation |
+
+Add the necessary rows for each measure. Do not fill in future actuals.
+
+## First / coming week
+
+| Owner | Commitment | Deadline | Completion criterion | Link to lead | Agreement / execution |
+|---|---|---|---|---|---|
+| [owner] | [specific action] | [date] | [verifiable result] | [lead] | [proposed / accepted; execution status] |
+
+Next session: [date, time, time zone or not agreed].
+Next action: [specific step].
+Decisions needed: [actual gaps only].
+
+## How to update
+
+[For an artifact/HTML: where to enter an observation, export data, and restore it. For text mode: “Send the period, measure, value/underlying counts, source, and commitment results; I will update the dashboard.”]
+Current system state: [real link or portable block in the response].
 
 
 ---
@@ -157,6 +230,15 @@ Keep the date, underlying counts, source, brief conclusion, and a link to separa
 - What we learned about lead measures:
 - Next goal: not selected / separate cycle ID
 
+## Dashboard
+
+- Format: interactive artifact / local HTML / text
+- Actual link or location in the response:
+- Dashboard version and data as of:
+- Latest exported data file, if applicable:
+- Next update procedure:
+- State synchronization: implemented and verified / manual using exported data
+
 
 ---
 
@@ -230,6 +312,63 @@ The extracted body lacks the illustrations and tables referenced by the chapters
 The authors' 80% control guideline is a conceptual dependency check, not a precise calculation. The FAQ's 12-week guideline does not establish a universal time to form a habit. Numbers in personal health stories are not prescriptions for the user.
 
 Additions in this adaptation: one main question at a time; portable system state; explicit draft/baseline/active statuses; unknown data distinguished from zero; measurement sources; versions and a change log; a date to review the lead hypothesis; negotiated recovery after a missed commitment without automatically doubling workload. These support honest AI-assisted execution and are not attributed to the authors.
+
+The mandatory post-interview dashboard delivery, interactive presentation, and data export/restore are implementation requirements of this AI adaptation, not claims about the book's original format.
+
+
+---
+
+<a id="references-dashboard-md"></a>
+
+## Embedded file: references/dashboard.md
+
+# Create and maintain the dashboard
+
+## When to create it
+
+Immediately after the interview ends, or as soon as there is enough information for a meaningful proposed system. This is a required setup deliverable; do not seek separate permission to prepare it. Populate it from the user's answers instead of asking them to fill out a blank template. When resuming, update the existing dashboard.
+
+## One-screen overview
+
+Use [assets/dashboard.md](#assets-dashboard-md) as the content template and fill in:
+
+- WIG card: owner, X, Y, unit, deadline, approval status, and baseline period.
+- Separate “Outcome / lag” and “Actions / lead” sections. For each measure: definition, improvement direction, standard/plan, actual for the same period, source, date, and a text status.
+- Plan-versus-actual history by date when comparable observations exist. With one or zero observations, show the initial point or “no measurements yet”; do not fabricate a trend.
+- The first week's plan and one or two commitments with owner, deadline, completion criterion, and link to a lead. Clearly distinguish proposed from accepted commitments.
+- Next session, unresolved decisions, and clear instructions for entering the next observation.
+
+Include the initial period and rows for the next period, with real dates when known. If a session time is undecided, say “not agreed.” Do not infer today's date from a book example.
+
+## Deliverable format
+
+1. If the environment supports visible interactive artifacts, create and show the dashboard as one.
+2. If file tools are available but a suitable built-in artifact is not, create a self-contained `dashboard.html` that opens in a browser without installing dependencies. Give the user a working file link and a short overview in the response. Preparing a local file is part of building the system; internet publication and external integrations need a separate instruction.
+3. If neither creation tool is available, immediately show a fully populated Markdown dashboard in the response. Explicitly identify this as text mode: the user supplies new measurements in chat and the assistant updates the scoreboard. Do not promise an interactive file or present raw code as an opened dashboard.
+
+Respect the user's explicit format choice. Do not delay delivery over colors or library selection. State and session notes remain portable records; they do not replace the visible dashboard.
+
+## Minimum interactive capabilities
+
+- Enter an observation: measure, period, value or numerator/denominator, date, and source.
+- Update plan, actual, and status without editing code; preserve earlier periods.
+- View history and mark commitment completion; changes to plans or definitions require a reason and a new version.
+- Export and restore data through a file, such as JSON. For local HTML, explain that editing the page does not overwrite the original HTML file; offer a data download and import on reopening. Do not rely solely on tab or browser memory.
+- Clear labels, a layout usable on narrow screens, and text labels as well as colors for statuses.
+
+Treat user data as text, not executable HTML or scripts. Do not add network uploads or analytics. Do not promise synchronization with system state unless implemented: for a separate HTML file, the exported data must be provided to the assistant at the next session.
+
+## Calculation rules
+
+Use the definitions and improvement direction from setup.md. An unknown actual is “no data,” not zero. A zero denominator means “no observations.” An unconfirmed standard is “draft,” without a winning/losing judgment. Show stale observations with their dates, separately from the current period.
+
+A green lead does not turn a red lag green. Show outcomes and actions separately; do not invent a combined success percentage. Goal progress percentages are permitted only with comparable, known X, Y, and actual and a nonzero Y−X; they do not replace comparison with the period plan. Preserve underlying counts and quality requirements.
+
+## Check before delivery
+
+Verify that the user can see their goal and both measure types, understand the score, and enter the next result. For an interactive file, check opening, observation entry, recalculation, and export/restore using available tools. Do not claim interface testing if it could not be performed; still provide a usable text view.
+
+At the end of each weekly session, show the updated dashboard alongside state and session notes. If the environment cannot update the previous artifact, create a dated new version and link while preserving history.
 
 
 ---
@@ -399,6 +538,12 @@ Ask the owner to choose one or two commitments for the coming week. Use: “I, [
 
 Build the state using [the system-state template](#assets-system-state-md). Set `active` only when the WIG, measurements, lead measures, scoreboard, cadence, and first commitments are agreed. Otherwise use `draft` or `baseline` and state the exact unfinished step. Continue useful preparation despite an individual gap.
 
+## 6. Deliver the interview outcome immediately
+
+Ending the interview triggers creation of the deliverable, not another offer to help. In the same response, formulate the WIG, lag, and lead measures, populate and show the ready-to-use dashboard following [dashboard.md](#references-dashboard-md), then provide state and first commitments. Do not ask whether to create the dashboard.
+
+If the baseline, standards, deadline, or agreement is missing, show a usable draft with labeled gaps and proposals instead of postponing the whole result. Do not invent actuals. Ask the next genuinely necessary question only after showing the result. Active status requires agreement; creating a draft does not.
+
 
 ---
 
@@ -444,6 +589,10 @@ Repeating the same promise for more than two weeks is a reason to examine its pu
 Return [session notes](#assets-weekly-session-md) and the updated state. Preserve missed and revised promises in history. State one main observation about the system, the next actions, and the next session date. Recognize concrete progress without artificial praise.
 
 If the WIG has been achieved, verify its criteria, record the result, and close the cycle. Do not raise Y retroactively. Separately decide what to maintain as a standard and which WIG to choose next.
+
+## Required dashboard delivery
+
+After the review, update and show the dashboard itself following [dashboard.md](#references-dashboard-md), rather than merely saying it was updated. Preserve definitions, history, and the link to the current state version. If measurements are missing, show “no data” for the relevant period and the next step to obtain them.
 
 
 ---

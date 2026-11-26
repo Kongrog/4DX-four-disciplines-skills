@@ -48,6 +48,15 @@ For environments that support skill folders, use [four-disciplines-coach-en](cha
 
 The ChatGPT skill folder includes the same references and templates; the standalone ChatGPT file embeds all of them.
 
+### What you receive after the interview
+
+The assistant must immediately formulate your WIG, lag outcome measure, and lead measures, then show a dashboard populated with your answers. You do not need to ask for it separately. It includes plan versus actual, measurement history, the first week's commitments, and instructions for adding new results.
+
+With suitable tools, the skill creates an interactive artifact or a standalone HTML dashboard with observation entry and data export/restore. Without creation tools, it provides a complete text dashboard in chat. Missing facts remain labeled; unconfirmed goals and standards appear as proposals rather than approved decisions.
+
+- [Dashboard creation and update rules](hermes/en/four-disciplines-execution-en/references/dashboard.md)
+- [Dashboard content template](hermes/en/four-disciplines-execution-en/assets/dashboard.md)
+
 ### Continuing each week
 
 Provide the latest system state and this week's results, then ask:
@@ -102,6 +111,15 @@ The project is licensed under [MIT](LICENSE), allowing personal and commercial u
 > Используй навык four-disciplines-execution. Помоги построить мою систему 4ДИ и вести еженедельные встречи. Согласуем каталог для паспорта и протоколов. Начни с выбора критически важной цели.
 
 Каталог skills зависит от активного профиля. Навык предлагает сохранять паспорт и протоколы в согласованной папке проекта; установка сама по себе не создаёт расписаний и не меняет глобальную память или настройки Hermes.
+
+## Результат сразу после опроса
+
+Помощник должен сразу сформулировать вашу КВЦ, запаздывающий показатель результата и опережающие показатели, затем показать дашборд, заполненный по вашим ответам. Отдельно просить об этом не нужно. Дашборд содержит план/факт, историю замеров, обязательства первой недели и способ внести новые результаты.
+
+При наличии подходящих инструментов создаётся интерактивный артефакт или отдельный HTML-дашборд с вводом замеров и экспортом/восстановлением данных. Без инструментов создания помощник выдаёт полный текстовый дашборд в чате. Неизвестные факты обозначаются явно, несогласованные цели и нормы остаются предложениями.
+
+- [Правила создания и обновления дашборда](hermes/four-disciplines-execution/references/dashboard.md).
+- [Содержательный шаблон дашборда](hermes/four-disciplines-execution/assets/dashboard.md).
 
 ## Работа по неделям
 

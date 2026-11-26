@@ -36,3 +36,7 @@ Repeating the same promise for more than two weeks is a reason to examine its pu
 Return [session notes](../assets/weekly-session.md) and the updated state. Preserve missed and revised promises in history. State one main observation about the system, the next actions, and the next session date. Recognize concrete progress without artificial praise.
 
 If the WIG has been achieved, verify its criteria, record the result, and close the cycle. Do not raise Y retroactively. Separately decide what to maintain as a standard and which WIG to choose next.
+
+## Required dashboard delivery
+
+After the review, update and show the dashboard itself following [dashboard.md](dashboard.md), rather than merely saying it was updated. Preserve definitions, history, and the link to the current state version. If measurements are missing, show “no data” for the relevant period and the next step to obtain them.

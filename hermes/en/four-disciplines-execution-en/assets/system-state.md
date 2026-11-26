@@ -85,3 +85,12 @@ Keep the date, underlying counts, source, brief conclusion, and a link to separa
 - What became an ongoing standard:
 - What we learned about lead measures:
 - Next goal: not selected / separate cycle ID
+
+## Dashboard
+
+- Format: interactive artifact / local HTML / text
+- Actual link or location in the response:
+- Dashboard version and data as of:
+- Latest exported data file, if applicable:
+- Next update procedure:
+- State synchronization: implemented and verified / manual using exported data

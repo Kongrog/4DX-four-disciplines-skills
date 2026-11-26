@@ -70,3 +70,9 @@ Agree on a weekly session: day, time, time zone, participants, facilitator, and 
 Ask the owner to choose one or two commitments for the coming week. Use: “I, [name], will deliver [specific result] by [date]; completion will be verified by [criterion]; this will affect [lead] through [mechanism].” Identify needed help separately.
 
 Build the state using [the system-state template](../assets/system-state.md). Set `active` only when the WIG, measurements, lead measures, scoreboard, cadence, and first commitments are agreed. Otherwise use `draft` or `baseline` and state the exact unfinished step. Continue useful preparation despite an individual gap.
+
+## 6. Deliver the interview outcome immediately
+
+Ending the interview triggers creation of the deliverable, not another offer to help. In the same response, formulate the WIG, lag, and lead measures, populate and show the ready-to-use dashboard following [dashboard.md](dashboard.md), then provide state and first commitments. Do not ask whether to create the dashboard.
+
+If the baseline, standards, deadline, or agreement is missing, show a usable draft with labeled gaps and proposals instead of postponing the whole result. Do not invent actuals. Ask the next genuinely necessary question only after showing the result. Active status requires agreement; creating a draft does not.

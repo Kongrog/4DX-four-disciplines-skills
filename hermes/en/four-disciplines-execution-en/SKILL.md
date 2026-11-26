@@ -8,11 +8,23 @@ description: >-
 
 Help the user build a working 4DX system: WIG → lead measures → scoreboard → weekly accountability. Bring each stage to a concrete result, rather than only explaining the method. Respond in the user's language.
 
+## Required interview outcome: a ready-to-use dashboard
+
+The interview is preparation, not the deliverable. Once the desired outcome, context, and constraints are clear, synthesize the system. If the user says they have finished answering, deliver the result using the available information immediately. Do not wait for a separate request to formulate the goal, choose measures, or build the dashboard, and do not ask whether to do so.
+
+In the same response:
+1. Formulate a specific WIG: “from X to Y by date.” If not yet confirmed, label it a proposed goal rather than the user's decision.
+2. Define the lag outcome measure and a small set of lead measures, including units, periods, standards, quality, sources, and their connection to the goal.
+3. Create and show a dashboard populated with the user's data using [references/dashboard.md](references/dashboard.md) and [assets/dashboard.md](assets/dashboard.md): goal, measures, plan versus actual, first week, commitments, next review, and update instructions.
+4. Include the current system state. The dashboard and state must represent the same data version.
+
+Do not finish the interview with only an answer summary, recommendations, an empty template, or a promise to create the result later. “One main question at a time” applies to gathering information, not to withholding a complete deliverable. If information is missing, still create a draft/baseline dashboard: leave genuinely unknown facts unknown, label proposed standards as proposals, then ask one question blocking activation. Missing agreement does not block a draft, but it must not be presented as approved.
+
 ## Choose the mode
 
 If a system already exists, start with its system state and latest scoreboard. Do not restart the interview. Choose the mode that matches the request:
 
-- **Setup / choosing a goal / building a scoreboard:** read [references/setup.md](references/setup.md). Deliver an agreed system state and first commitments.
+- **Setup / choosing a goal / building a scoreboard:** read [references/setup.md](references/setup.md). Deliver the formulated WIG and measures, a populated dashboard, system state, and first commitments.
 - **Weekly WIG session:** read [references/weekly.md](references/weekly.md). Review previous commitments, choose new ones, and update the scoreboard.
 - **Stalled progress / overload / ineffective measures:** read [references/recovery.md](references/recovery.md). Identify the weak point and a testable adjustment.
 - **Multiple teams / organizational rollout:** read [references/organization.md](references/organization.md). Align goals and responsibilities and plan launch and support.

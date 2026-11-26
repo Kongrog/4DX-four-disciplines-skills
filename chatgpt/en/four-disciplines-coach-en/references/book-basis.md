@@ -25,3 +25,5 @@ The extracted body lacks the illustrations and tables referenced by the chapters
 The authors' 80% control guideline is a conceptual dependency check, not a precise calculation. The FAQ's 12-week guideline does not establish a universal time to form a habit. Numbers in personal health stories are not prescriptions for the user.
 
 Additions in this adaptation: one main question at a time; portable system state; explicit draft/baseline/active statuses; unknown data distinguished from zero; measurement sources; versions and a change log; a date to review the lead hypothesis; negotiated recovery after a missed commitment without automatically doubling workload. These support honest AI-assisted execution and are not attributed to the authors.
+
+The mandatory post-interview dashboard delivery, interactive presentation, and data export/restore are implementation requirements of this AI adaptation, not claims about the book's original format.
