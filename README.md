@@ -1,5 +1,54 @@
 # 4DX — Four Disciplines Skills
 
+[English](#english) · [Русский](#русский)
+
+## English
+
+AI assistant skills for **ChatGPT and Hermes** based on *The 4 Disciplines of Execution* (4DX). They help individuals and teams turn an important goal into a practical system of measurable actions, a visible scoreboard, and weekly accountability.
+
+### What the skills help you do
+
+1. **Focus on a Wildly Important Goal (WIG):** define the outcome, baseline, target, and deadline.
+2. **Act on lead measures:** choose actions or intermediate results you can influence and test their connection to the goal.
+3. **Keep a compelling scoreboard:** compare planned and actual results for both lead and lag measures.
+4. **Create a cadence of accountability:** review previous commitments, learn from the scoreboard, and choose one or two concrete commitments for the next week.
+
+The skills also support recovery after missed commitments, diagnosis of ineffective measures, and coordination across teams. They include a reusable system-state template, a weekly review template, and a fictional worked example.
+
+### Getting started
+
+**ChatGPT:** download [CHATGPT-INSTRUCTIONS.md](chatgpt/CHATGPT-INSTRUCTIONS.md), attach it to a chat, and send:
+
+> Use the attached instructions as my 4DX coaching skill. Help me build an execution system for my goal. Ask one main question at a time, respond in English, and keep a portable record of the system.
+
+For environments that support skill folders, use [four-disciplines-coach](chatgpt/four-disciplines-coach/SKILL.md) instead of the standalone file.
+
+**Hermes:** download the repository and copy the entire [four-disciplines-execution](hermes/four-disciplines-execution/SKILL.md) folder from `hermes/` into the `skills` directory of your chosen active profile. Preserve the root LICENSE when redistributing the files. Confirm that Hermes can discover and open the skill, then send:
+
+> Use the four-disciplines-execution skill. Help me set up my 4DX system and run weekly reviews. Respond in English. Let's agree on a folder for the system state and session notes.
+
+**Language:** the skill files, references, and templates are currently written in Russian. The instructions ask the assistant to respond in the user's language; a separate English translation of the skill files is not included.
+
+### Continuing each week
+
+Provide the latest system state and this week's results, then ask:
+
+> Run my weekly 4DX review: check last week's commitments, update the scoreboard, and help me choose one or two commitments for next week.
+
+Carry the instructions and latest system state into a new ChatGPT conversation. Hermes can use saved state when it has access to the agreed folder. These skills do not automatically enable persistent memory, reminders, or background execution.
+
+### Source, validation, and license
+
+This is an unofficial adaptation of the book by Chris McChesney, Sean Covey, and Jim Huling, based on its 2013 Russian edition. The book itself is not included. The project is not endorsed by the authors or FranklinCovey.
+
+Both SKILL.md files passed format validation, and package links were checked. The instructions received a manual scenario review; independent model testing and live installation tests were not performed.
+
+The project is licensed under [MIT](LICENSE), allowing personal and commercial use under its terms. Reports of changes, improvements, and bugs are welcome through Issues, Pull Requests, or **kongrog@yandex.ru**. Reporting is voluntary and is not an additional license condition.
+
+---
+
+## Русский
+
 Скиллы для ChatGPT и Hermes по методу «Четыре дисциплины исполнения»: постановка целей, опережающие показатели, табло прогресса и еженедельная отчётность.
 
 Помощник ведёт от выбора критически важной цели до регулярного исполнения: помогает определить управляемые действия, увидеть план и факт, принять конкретные обязательства и разобрать причины срывов.
